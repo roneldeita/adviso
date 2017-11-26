@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="row justify-content-md-center">
-      <div class="col-sm-24 col-md-auto col-lg-4 clearfixt" span="6">
+      <div class="col-sm-24 col-md-auto col-lg-3 clearfixt" span="6">
         <img class="phone float-right" src="../assets/images/adviso_home.png" alt="">
       </div>
       <div class="col-sm-24 col-md-auto col-lg-4 text-left" span="6">
