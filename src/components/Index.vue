@@ -1,35 +1,33 @@
 <template>
-  <div class="container-fluid">
-    <div class="row justify-content-md-center" style="padding-top:50px">
+  <div class="container-fluid" style="padding-top:50px; padding-bottom:100px">
+    <div class="row justify-content-md-center">
       <div class="col-sm-24 col-md-auto" span="6">
         <div style="width:100%">
-          <img class="logo" src="../assets/images/AdvisoLogo.png" alt="">
+          <img class="logo" src="../assets/images/Adviso_500x500.png" alt="">
         </div>
         <br>
       </div>
     </div>
     <div class="row justify-content-md-center">
-      <div class="col-sm-24 col-md-auto col-lg-3 clearfixt" span="6">
-        <img class="phone float-right" src="../assets/images/adviso_home.png" alt="">
+      <div class="col-sm-24 col-md-auto col-lg-3" span="6">
+        <img class="phone" src="../assets/images/adviso_home.png" alt=""><br>
+        <button type="submit" class="btn btn-dark btn-app" style="padding-left:20px:"><span class="fa fa-apple"></span> <span class="fa fa-android"></span> Mobile App Available Soon</button>
       </div>
       <div class="col-sm-24 col-md-auto col-lg-4 text-left" span="6">
-
-        <p class="title">Adviso Tax & Business Services is crrently updating this site for 2018</p>
+        <p class="title">We are currently updating this site for 2018</p>
         <br>
-        <p class="title">Long Beach Office Information <br><small>235 E. Broadway Ste 800, Long Beach, CA 90802</small></p>
+        <p class="title">Long Beach Office <br><small>235 E. Broadway Ste 800, Long Beach, CA 90802</small></p>
         <p class="title">Office Hours <br><small>Monday - Friday | 10AM - 4PM</small><br><small>Phone# 562.731.2312</small></p>
-        <p class="title"><small>Email </small> info@advisoonline.com </p>
+        <p class="title"><small>Email: info@advisoonline.com </small></p>
         <form @submit="subscribe">
           <div class="form-row">
-            <div class="col-md-7">
+            <div class="col-md-12">
               <label class="sr-only" for="inlineFormInputName">Name</label>
               <input type="text" class="form-control input-email" placeholder="Type your email">
+              <button type="submit" class="btn btn-dark btn-subscribe">Subscribe</button>
             </div>
-            <div class="col-md-4">
-              <button type="submit" class="btn btn-dark btn-subscribe" style="padding-left:20px:">Subscribe</button>
-            </div>
-            <div class="col-md-24">
-              <button type="submit" class="btn btn-dark btn-app" style="padding-left:20px:"><span class="fa fa-apple"></span> <span class="fa fa-android"></span> Mobile App Available Soon</button>
+            <div class="col-md-8">
+
             </div>
           </div>
         </form>
@@ -57,11 +55,10 @@ export default {
 
 <style scoped>
   .phone{
-    max-height: 450px;
-    margin-right: 50px;
+    max-height: 350px;
   }
   .logo{
-    width: 250px;
+    width: 500px;
     margin-bottom: 25px
   }
   .title{
@@ -74,9 +71,12 @@ export default {
     padding-bottom: 5px;
   }
   .input-email{
-    border: 2px solid #899ca9
+    display: inline-block;
+    border: 2px solid #899ca9;
+    max-width: 275px;
   }
   .btn-subscribe{
+    display: inline-block;
     padding-left: 25px;
     padding-right: 25px;
     background-color: #313C44 !important;
@@ -87,18 +87,17 @@ export default {
   }
   .btn-app{
     margin-top: 10px;
-    font-size: 14px;
-    padding: 8px 20px;
+    font-size: 12px;
     background-color: #000000 !important;
     color: #D3D3D3 !important;
     font-weight: bold;
-    border-radius: 10px
+    border-radius: 10px;
   }
 
   .fa-apple,
   .fa-android{
     color: #ffffff;
-    font-size: 18px;
+    font-size: 12px;
     padding-right: 10px;
   }
 
