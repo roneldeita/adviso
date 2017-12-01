@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid" style="padding-top:50px; padding-bottom:100px">
+  <div class="container-fluid index-container" style="padding-top:50px; padding-bottom:100px">
     <div class="row justify-content-md-center">
       <div class="col-sm-24 col-md-auto" span="6">
         <div style="width:100%">
@@ -54,6 +54,18 @@ export default {
 </script>
 
 <style scoped>
+  .index-container{
+      /* The image used */
+      background-image: url("./../assets/images/Adviso_website_Home1_BG-01.jpg");
+
+      /* Full height */
+      min-height: 100vh;
+      width: 100%;
+
+      /* Center and scale the image nicely */
+      background-repeat: no-repeat;
+      background-size: cover;
+  }
   .phone{
     max-height: 350px;
   }

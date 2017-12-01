@@ -1,33 +1,43 @@
 <template>
   <div id="app">
-    <router-view/>
+    <div id="admin" class="container-fluid" v-if="$route.name != 'index'">
+      <div class="row no-gutters">
+        <div class="col-md-2">
+          <sidebar></sidebar>
+        </div>
+        <div class="col-md-10">
+          <topbar></topbar>
+          <router-view/>
+        </div>
+      </div>
+    </div>
+    <router-view v-if="$route.name === 'index'"/>
   </div>
 </template>
 
 <script>
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js'
+
+import Sidebar from './components/template/Sidebar.vue'
+import Topbar from './components/template/Topbar.vue'
+
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    Sidebar, Topbar
+  }
 }
 </script>
 
 <style>
 @import url('../node_modules/bootstrap/dist/css/bootstrap.min.css');
 @import url('../node_modules/font-awesome/css/font-awesome.min.css');
+@import url('../node_modules/element-ui/lib/theme-chalk/index.css');
+@import url('../node_modules/vuetify/dist/vuetify.min.css');
 body, html {
     height: 100%;
     margin: 0;
-}
-#app{
-    /* The image used */
-    background-image: url("./assets/images/Adviso_website_Home1_BG-01.jpg");
-
-    /* Full height */
-    min-height: 100%;
-
-    /* Center and scale the image nicely */
-    background-repeat: no-repeat;
-    background-size: cover;
+    overflow-y: auto;
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -35,8 +45,21 @@ body, html {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  background-color: #eef8fd
+
 }
+.container-fluid{
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
 .bordered{
   border: 1px solid #000000;
+}
+</style>
+
+<style scoped>
+#admin{
+  padding: 0px !important
 }
 </style>
