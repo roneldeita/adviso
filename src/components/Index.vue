@@ -22,11 +22,10 @@
         <form @submit="subscribe">
           <div class="form-row">
             <div class="col-md-12">
-              <label class="sr-only" for="inlineFormInputName">Name</label>
-              <input type="text" class="form-control input-email" placeholder="Type your email">
+              <input type="email" class="form-control input-email" placeholder="Type your email" required>
               <button type="submit" class="btn btn-dark btn-subscribe">Subscribe</button>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-12">
 
             </div>
           </div>
@@ -47,7 +46,6 @@ export default {
   methods: {
     subscribe: function (e) {
       e.preventDefault()
-      console.log(e)
     }
   }
 }
@@ -85,20 +83,16 @@ export default {
   .input-email{
     display: inline-block;
     border: 2px solid #899ca9;
-    max-width: 275px;
+    max-width: 250px;
   }
   .btn-subscribe{
     display: inline-block;
     padding-left: 25px;
     padding-right: 25px;
     background-color: #313C44 !important;
-    color: #97a9b4 !important;
-  }
-  .btn-subscribe:active{
-    color: #c4ced4 !important;
+    color: #c4ced4 !important
   }
   .btn-app{
-    margin-top: 10px;
     font-size: 12px;
     background-color: #000000 !important;
     color: #D3D3D3 !important;

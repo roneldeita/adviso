@@ -21,7 +21,7 @@ export default {
 
 <style scoped>
 .fa{
-  color: #c0ccda;
+  color: #313c44;
   margin: 0px 5px;
 }
 .fa-bell-o{
@@ -31,6 +31,6 @@ export default {
   font-size: 28px;
 }
 .topbar-container{
-  padding:25px 10px;
+  padding:25px 20px;
 }
 </style>

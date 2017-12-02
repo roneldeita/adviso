@@ -33,7 +33,7 @@ export default {
 @import url('../node_modules/bootstrap/dist/css/bootstrap.min.css');
 @import url('../node_modules/font-awesome/css/font-awesome.min.css');
 @import url('../node_modules/element-ui/lib/theme-chalk/index.css');
-@import url('../node_modules/vuetify/dist/vuetify.min.css');
+
 body, html {
     height: 100%;
     margin: 0;

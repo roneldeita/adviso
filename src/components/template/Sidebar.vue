@@ -70,6 +70,7 @@ export default {
 .sidebar-container{
   background-color: #313c44;
   height: 100vh;
+  min-height: 100%;
 }
 .menubar .el-menu-item {
   color: #c0ccda !important
