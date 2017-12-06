@@ -5,10 +5,10 @@ import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'// ElementUi
 import locale from 'element-ui/lib/locale/lang/en'
-import Vuetify from 'vuetify'
+// import Vuetify from 'vuetify'
 
 Vue.use(ElementUI, { locale })
-Vue.use(Vuetify)
+// Vue.use(Vuetify)
 
 Vue.config.productionTip = false
 

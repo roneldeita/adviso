@@ -1,7 +1,7 @@
 <template>
     <div class="sidebar-container">
       <div class="logo-container">
-        <img class="logo" src="../../assets/images/AdvisoLogo_100x100_White.png" alt="">
+        <img class="logo" src="../../../assets/images/AdvisoLogo_100x100_White.png" alt="">
       </div>
       <el-menu
         default-active="2"

@@ -3,28 +3,32 @@
     <div id="admin" class="container-fluid" v-if="$route.name != 'index'">
       <div class="row no-gutters">
         <div class="col-md-2">
-          <sidebar></sidebar>
+          <admin-sidebar></admin-sidebar>
         </div>
         <div class="col-md-10">
-          <topbar></topbar>
+          <admin-topbar></admin-topbar>
           <router-view/>
         </div>
       </div>
     </div>
-    <router-view v-if="$route.name === 'index'"/>
+    <div id="client" v-if="$route.name === 'index'">
+      <client-topbar></client-topbar>
+      <router-view/>
+    </div>
   </div>
 </template>
 
 <script>
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js'
 
-import Sidebar from './components/template/Sidebar.vue'
-import Topbar from './components/template/Topbar.vue'
+import ClientTopbar from './components/template/Topbar.vue'
+import AdminSidebar from './components/admin/template/Sidebar.vue'
+import AdminTopbar from './components/admin/template/Topbar.vue'
 
 export default {
   name: 'app',
   components: {
-    Sidebar, Topbar
+    ClientTopbar, AdminSidebar, AdminTopbar
   }
 }
 </script>
@@ -33,7 +37,7 @@ export default {
 @import url('../node_modules/bootstrap/dist/css/bootstrap.min.css');
 @import url('../node_modules/font-awesome/css/font-awesome.min.css');
 @import url('../node_modules/element-ui/lib/theme-chalk/index.css');
-
+/*@import url('../node_modules/vuetify/dist/vuetify.min.css');*/
 body, html {
     height: 100%;
     margin: 0;

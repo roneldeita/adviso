@@ -33,8 +33,16 @@
         </div>
       </div>
       <div class="col-md-3 calendar-container">
-        <v-date-picker color="blue-grey darken-2" v-model="picker" style="width:100%"></v-date-picker>
-        <div class="">
+        <!-- <v-date-picker color="blue-grey darken-2" v-model="picker" style="width:100%"></v-date-picker> -->
+        <div class="block">
+          <el-date-picker
+            v-model="picker"
+            type="date"
+            placeholder="Pick a day"
+            format="yyyy/MM/dd">
+          </el-date-picker>
+        </div>
+        <div style="background-color:#ffffff; height: 400px;margin-top:10px">
           {{ picker }}
         </div>
       </div>
@@ -48,7 +56,7 @@ export default {
   data () {
     return {
       activeTab: 'queries',
-      picker: null,
+      picker: new Date(),
       dialog: false,
       tableData3: [{
         date: '2016-05-03',
@@ -106,21 +114,23 @@ export default {
     handleSelect (selectedTab) {
       this.activeTab = selectedTab
     }
+  },
+  created () {
   }
 
 }
 </script>
 
-<style>
-  .picker .picker__body{
-    height: 270px !important
-  }
+<style scoped>
   .appointment-container{
     padding: 0 20px !important;
     margin-top: -60px;
   }
   .calendar-container{
     padding-right: 20px !important
+  }
+  .calendar-container .el-date-editor{
+    width: 100%
   }
   .el-menu-appointment{
     margin-top: 20px;
