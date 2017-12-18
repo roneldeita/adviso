@@ -5,10 +5,22 @@ import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'// ElementUi
 import locale from 'element-ui/lib/locale/lang/en'
-// import Vuetify from 'vuetify'
+import * as VueGoogleMaps from 'vue2-google-maps'
+import moment from 'moment'
+import VueMoment from 'vue-moment'
+import VueAxios from 'vue-axios'
+import axios from 'axios'
 
 Vue.use(ElementUI, { locale })
-// Vue.use(Vuetify)
+Vue.use(VueMoment, moment)
+Vue.use(VueAxios, axios)
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: 'AIzaSyATSZ8ZMz0L0e3dNxz3hzNJw7FHyFcZFcs',
+    v: '3.29',
+    libraries: 'places' // If you need to use place input
+  }}
+)
 
 Vue.config.productionTip = false
 

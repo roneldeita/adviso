@@ -9,23 +9,54 @@
         </el-menu>
         <div v-if="activeTab === 'queries'">
           <el-table
-            :data="tableData3"
+            align="left"
+            :data="appointments"
             style="width: 100%">
             <el-table-column type="expand">
               <template slot-scope="props">
-                <p>State: {{ props.row.state }}</p>
-                <p>City: {{ props.row.city }}</p>
-                <p>Address: {{ props.row.address }}</p>
-                <p>Zip: {{ props.row.zip }}</p>
+                <p>First Name: <b>{{props.row.first_name}}</b></p>
+                <p>Middle Name: <b>{{props.row.middle_name}}</b></p>
+                <p>Last Name: <b>{{props.row.last_name}}</b></p>
+                <p>Contact: <b>{{ props.row.number }}</b></p>
+                <p>Email: </p>
               </template>
             </el-table-column>
             <el-table-column
-              label="Date"
-              prop="date">
+              label="DATE"
+              prop="requested_date"
+              width="100">
             </el-table-column>
             <el-table-column
-              label="Name"
-              prop="name">
+              label="TIME"
+              prop="requested_time"
+              width="90">
+            </el-table-column>
+            <el-table-column
+              label="FULL NAME"
+              prop="first_name">
+               <template slot-scope="scope">
+                 <span>{{scope.row.first_name}} </span>
+                 <span>{{scope.row.middle_name}} </span>
+                 <span>{{scope.row.last_name}} </span>
+               </template>
+            </el-table-column>
+            <el-table-column
+              label="CONTACT"
+              prop="number"
+              width="150">
+            </el-table-column>
+            <el-table-column
+              label="AGENT"
+              prop="agent">
+            </el-table-column>
+            <el-table-column
+              label="OPERATIONS"
+              width="110">
+              <template slot-scope="scope">
+                <el-button
+                  size="mini"
+                  type="primary">Queue</el-button>
+              </template>
             </el-table-column>
           </el-table>
         </div>
@@ -37,9 +68,7 @@
         <div class="block">
           <el-date-picker
             v-model="picker"
-            type="date"
-            placeholder="Pick a day"
-            format="yyyy/MM/dd">
+            placeholder="Pick a day">
           </el-date-picker>
         </div>
         <div style="background-color:#ffffff; height: 400px;margin-top:10px">
@@ -58,55 +87,46 @@ export default {
       activeTab: 'queries',
       picker: new Date(),
       dialog: false,
-      tableData3: [{
-        date: '2016-05-03',
-        name: 'Tom',
-        state: 'California',
-        city: 'Los Angeles',
-        address: 'No. 189, Grove St, Los Angeles',
-        zip: 'CA 90036'
+      appointments: [{
+        first_name: 'Ronel',
+        middle_name: 'Aparri',
+        last_name: 'Deita',
+        number: '0987654321',
+        requested_date: '2016-05-03',
+        requested_time: '9 : 00 AM',
+        agent: 'Chris Villanueva'
       }, {
-        date: '2016-05-02',
-        name: 'Tom',
-        state: 'California',
-        city: 'Los Angeles',
-        address: 'No. 189, Grove St, Los Angeles',
-        zip: 'CA 90036'
+        first_name: 'Albert',
+        middle_name: 'Joy',
+        last_name: 'Nakpil',
+        number: '0987654321',
+        requested_date: '2016-05-03',
+        requested_time: '9 : 00 AM',
+        agent: 'Chris Villanueva'
       }, {
-        date: '2016-05-04',
-        name: 'Tom',
-        state: 'California',
-        city: 'Los Angeles',
-        address: 'No. 189, Grove St, Los Angeles',
-        zip: 'CA 90036'
+        first_name: 'Miguel',
+        middle_name: 'Migul',
+        last_name: 'Napiza',
+        number: '0987654321',
+        requested_date: '2016-05-03',
+        requested_time: '9 : 00 AM',
+        agent: 'Chris Villanueva'
       }, {
-        date: '2016-05-01',
-        name: 'Tom',
-        state: 'California',
-        city: 'Los Angeles',
-        address: 'No. 189, Grove St, Los Angeles',
-        zip: 'CA 90036'
+        first_name: 'Khalid',
+        middle_name: 'Omar',
+        last_name: 'Abdul',
+        number: '0987654321',
+        requested_date: '2016-05-03',
+        requested_time: '9 : 00 AM',
+        agent: 'Chris Villanueva'
       }, {
-        date: '2016-05-08',
-        name: 'Tom',
-        state: 'California',
-        city: 'Los Angeles',
-        address: 'No. 189, Grove St, Los Angeles',
-        zip: 'CA 90036'
-      }, {
-        date: '2016-05-06',
-        name: 'Tom',
-        state: 'California',
-        city: 'Los Angeles',
-        address: 'No. 189, Grove St, Los Angeles',
-        zip: 'CA 90036'
-      }, {
-        date: '2016-05-07',
-        name: 'Tom',
-        state: 'California',
-        city: 'Los Angeles',
-        address: 'No. 189, Grove St, Los Angeles',
-        zip: 'CA 90036'
+        first_name: 'Jose',
+        middle_name: 'P',
+        last_name: 'Rizal',
+        number: '0987654321',
+        requested_date: '2016-05-03',
+        requested_time: '9 : 00 AM',
+        agent: 'Chris Villanueva'
       }]
     }
   },
@@ -134,5 +154,8 @@ export default {
   }
   .el-menu-appointment{
     margin-top: 20px;
+  }
+  .tables-header{
+    font-size: 2px;
   }
 </style>
