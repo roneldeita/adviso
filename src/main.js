@@ -9,11 +9,14 @@ import * as VueGoogleMaps from 'vue2-google-maps'
 import moment from 'moment'
 import VueMoment from 'vue-moment'
 import VueAxios from 'vue-axios'
+import VueLodash from 'vue-lodash'
 import axios from 'axios'
+import lodash from 'lodash'
 
 Vue.use(ElementUI, { locale })
 Vue.use(VueMoment, moment)
 Vue.use(VueAxios, axios)
+Vue.use(VueLodash, lodash)
 Vue.use(VueGoogleMaps, {
   load: {
     key: 'AIzaSyATSZ8ZMz0L0e3dNxz3hzNJw7FHyFcZFcs',

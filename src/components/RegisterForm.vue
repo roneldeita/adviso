@@ -35,13 +35,18 @@
             type="date"
             placeholder="Pick a day"
             :picker-options="dateOptions"
-            style="width:100%">
+            style="width:100%"
+            @blur="getDisabledTime()"
+            >
           </el-date-picker>
         </el-form-item>
       </div>
       <div class="form-group">
         <el-form-item label="" prop="time">
-          <el-time-select
+          <el-select placeholder="Pick your time" v-model="appointmentForm.time" style="width:100%">
+            <el-option v-for="item in allowedTime" :value="item.time">{{item.time}}</el-option>
+          </el-select>
+          <!-- <el-time-select
             placeholder="Pick your time"
             v-model="appointmentForm.time"
             :picker-options="{
@@ -50,17 +55,12 @@
               end: '16:30'
             }"
             style="width:100%">
-          </el-time-select>
+          </el-time-select> -->
         </el-form-item>
       </div>
       <div class="form-group">
         <el-form-item label="" prop="first_name">
           <el-input placeholder="First Name" v-model="appointmentForm.first_name" required></el-input>
-        </el-form-item>
-      </div>
-      <div class="form-group">
-        <el-form-item label="" prop="middle_name">
-          <el-input placeholder="Middle Name" v-model="appointmentForm.middle_name"></el-input>
         </el-form-item>
       </div>
       <div class="form-group">
@@ -75,11 +75,11 @@
       </div>
       <div class="form-group">
         <el-form-item label="" prop="contact">
-          <el-input type="number" :controls="false"  placeholder="Contact" v-model.number="appointmentForm.contact"></el-input>
+          <el-input type="number" :controls="false"  placeholder="Phone Number" v-model.number="appointmentForm.contact"></el-input>
         </el-form-item>
       </div>
       <br>
-      <el-button type="submit" v-on:click="handleAppointment('appointmentForm')">Request Appointment</el-button>
+      <el-button type="submit" v-on:click="handleAppointment('appointmentForm')">Request Call Back</el-button>
     </el-form>
   </div>
 </template>
@@ -93,19 +93,15 @@ export default {
         date: '',
         time: '',
         first_name: '',
-        middle_name: '',
         last_name: '',
         email: '',
         contact: ''
       },
+      allowedTime: [],
       submitLoading: false,
       appointmentRules: {
         first_name: [
           { required: true, message: 'Your first name is required', trigger: 'blur' },
-          { min: 0, max: 100, message: 'Length should not exceed to 50 characters', trigger: 'blur' }
-        ],
-        middle_name: [
-          { required: true, message: 'Your middle name is required', trigger: 'blur' },
           { min: 0, max: 100, message: 'Length should not exceed to 50 characters', trigger: 'blur' }
         ],
         last_name: [
@@ -117,7 +113,7 @@ export default {
           { type: 'email', message: 'Must be of type email', trigger: 'blur' }
         ],
         contact: [
-          { required: true, message: 'Your contact number is required', trigger: 'blur' },
+          { required: true, message: 'Your phone number is required', trigger: 'blur' },
           { type: 'number', message: 'Must be of type number', trigger: 'blur' }
         ],
         date: [
@@ -135,6 +131,7 @@ export default {
           // console.log() // the date todaty
           // return time.getTime() === Date.parse('2017/12/10')
         }
+
       }
     }
   },
@@ -154,13 +151,35 @@ export default {
         this.appointmentForm[key] = null
       }
     },
+    getDisabledTime () {
+      const listOfAllowedTime = [
+        '09 : 00 AM', '09 : 30 AM', '10 : 00 AM',
+        '10 : 30 AM', '11 : 00 AM', '11 : 30 AM',
+        '12 : 00 PM', '12 : 30 PM', '01 : 00 PM',
+        '01 : 30 PM', '02 : 00 PM', '02 : 30 PM',
+        '03 : 00 PM', '03 : 30 PM', '04 : 00 PM'
+      ]
+      this.allowedTime = []
+      this.axios.get(process.env.API_URL + '/appointment/' + this.getDate(this.appointmentForm.date))
+      .then(response => {
+        let disabledTime = []
+        response.data.time.forEach(item => {
+          disabledTime.push(item.readable_time)
+        })
+        let time = this._.difference(listOfAllowedTime, disabledTime)
+        for (let i = 0; i < time.length; i++) {
+          this.allowedTime.push({time: time[i]})
+        }
+      }).catch(error => {
+        console.log(error)
+      })
+    },
     handleAppointment (formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           this.submitLoading = true
           var copyData = Object.assign({}, this.appointmentForm)
           copyData.date = this.getDate(copyData.date)
-          copyData.time = this.getTime(copyData.date, copyData.time)
           copyData.contact = copyData.contact.toString()
           this.axios.post(process.env.API_URL + '/appointment', copyData)
           .then(response => {

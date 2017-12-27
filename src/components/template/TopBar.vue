@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid fixed-top navbar-container">
-    <a href="https://app.canopytax.com/#/login" class="pull-right btn-login d-none d-lg-block">Login/Register</a>
+    <a href="https://app.canopytax.com/#/login" class="pull-right btn-login d-none d-lg-block">Adviso Client Login</a>
     <div class="container">
       <div class="row justify-content-md-center">
         <div class="col-md-8">
@@ -21,9 +21,6 @@
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#services">SERVICES</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#appointment">APPOINTMENT</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#contact">CONTACT US</a>
