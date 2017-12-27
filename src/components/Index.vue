@@ -11,7 +11,7 @@
                   <p class="subtitle">Find out what it means to be part of the Adviso Family. </p>
                   <p class="subtitle">Schedule a FREE Tax, Accounting or Business Consultation today.</p>
                   <br>
-                  <a href="#appointment" class="btn btn-dark">Request Appointment</a>
+                  <a href="#appointment" class="btn btn-dark">Setup Free Consultation</a>
                 </div>
               </div>
             </div>
@@ -69,30 +69,52 @@
         </div>
         <div class="row justify-content-md-center" style="margin-top:50px">
           <div class="col-md-8">
-            <div class="row justify-content-md-center">
-              <div class="col-md-3">
-                <p class="icon pe-7s-headphones"></p>
-                <p>Start-Up Business Consulting</p>
-                <hr style="width:40px; border-top: 1px solid black">
+            <div class="row" style="margin-bottom : 100px">
+              <div class="col-md-6">
+                <img src="../assets/images/Start_Up_Icon.png" alt="" style="width:50%">
+              </div>
+              <div class="col-md-6" style="text-align : left">
+                <div style="flex-direction :row; display : flex;">
+                  <i class="icon pe-7s-headphones" style="margin-right : 10px"></i>
+                  <h4 style="justify-self : center;">Start-Up Business Consulting</h4>
+                </div>
                 <p>Don’t know where to begin? No problem! We’ll help you every step of the way from idea to execution. </p>
               </div>
-              <div class="col-md-3">
-                <p class="icon pe-7s-calculator"></p>
-                <p>Tax Preparation</p>
-                <hr style="width:40px; border-top: 1px solid black">
-                <p>We offer preparation services for both individual and business tax  returns. All services are backed with free Audit representation*</p>
+            </div>
+            <div class="row" style="margin-bottom : 100px">
+              <div class="col-md-6" style="text-align : left">
+                <div style="flex-direction :row; display : flex;">
+                  <i class="icon pe-7s-calculator" style="margin-right : 10px"></i>
+                  <h4>Tax Preparation</h4>
+                </div>
+                <p>We offer preparation services for both individual and business tax  returns. All services are backed with free Audit representation* </p>
               </div>
-              <div class="col-md-3">
-                <p class="icon pe-7s-key"></p>
-                <p>Tax Resolution</p>
-                <hr style="width:40px; border-top: 1px solid black">
-                <p>Received a notice from the IRS? One of our Enrolled Agents will be able to assist you every step of the way.</p>
+              <div class="col-md-6">
+                <img src="../assets/images/TaxPreparation_Icon.png" alt="" style="width:50%">
               </div>
-              <div class="col-md-3">
-                <p class="icon pe-7s-bookmarks"></p>
-                <p>Bookkeeping</p>
-                <hr style="width:40px; border-top: 1px solid black">
+            </div>
+            <div class="row" style="margin-bottom : 100px">
+              <div class="col-md-6">
+                <img src="../assets/images/TaxResolution_Icon.png" alt="" style="width:50%">
+              </div>
+              <div class="col-md-6" style="text-align : left">
+                <div style="flex-direction :row; display : flex;">
+                  <i class="icon pe-7s-key" style="margin-right : 10px"></i>
+                  <h4 style="justify-self : center;">Tax Resolution</h4>
+                </div>
+                <p>Received a notice from the IRS? One of our Enrolled Agents will be able to assist you every step of the way. </p>
+              </div>
+            </div>
+            <div class="row" style="margin-bottom : 100px">
+              <div class="col-md-6" style="text-align : left">
+                <div style="flex-direction :row; display : flex;">
+                  <i class="icon pe-7s-bookmarks" style="margin-right : 10px"></i>
+                  <h4>Bookkeeping</h4>
+                </div>
                 <p>Maintaining proper books is critical to any business, big or small. Whether you just need someone to clean up your books, or need someone regularly maintaining them, we have you covered. </p>
+              </div>
+              <div class="col-md-6">
+                <img src="../assets/images/Bookkeeping_Icon.png" alt="" style="width:50%">
               </div>
             </div>
           </div>
@@ -107,11 +129,11 @@
             <div class="row justify-content-md-center">
               <div class="col-md-12">
                 <p class="title txt-light-blue">GET STARTED TODAY</p>
-                <p>Register now to gain access to our free tax app. One of our representative will contact you to set you up!</p>
+                <p>Select a date and time for one of our representatives to call back</p>
                 <br>
               </div>
-              <div class="col-md-6">
-                <img src="../assets/images/adviso_mobile.png" alt="adviso mobile" style="margin-top:50px">
+              <div class="col-md-6" style="justify-content:center;">
+                <img src="../assets/images/CallCenter.png" alt="" style="width:80%;height:75%;margin-top : 60px">
               </div>
               <div class="col-md-6 text-left">
                 <register-form></register-form>

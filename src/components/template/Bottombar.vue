@@ -9,6 +9,8 @@
               <p class="address">Long Beach Office, 235 E. Broadway Ste 800, Long Beach, CA 90802</p>
               <p class="contact txt-light-blue">562.731.2312</p>
             </div>
+            <div class = "col-md-4">
+            </div>
             <div class="col-md-4">
               <div style="margin-left:60px;">
                 <p class="quick-links text-left"><span style="text-decoration">QUIC</span>K LINKS</p>
@@ -17,21 +19,8 @@
                   <li>Home</li>
                   <li>About Us</li>
                   <li>Services</li>
-                  <li>Appointment</li>
                   <li>Contact Us</li>
                 </ul>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="row">
-                <div class="col-md-5" style="padding:0">
-                  <img class="mobile" src="../../assets/images/adviso_mobile.png" alt="logo">
-                </div>
-                <div class="col-md-7" style="padding:5px">
-                  <p class="text-mobile">DOWNLOAD ADVISO TAX EXPRESS</p>
-                  <button type="button" class="btn btn-dark" name="button"><span class="fa fa-apple" ></span> Download On App Store</button>
-                  <button type="button" class="btn btn-dark" name="button"><span class="fa fa-android" ></span> Download On Play Store</button>
-                </div>
               </div>
             </div>
           </div>
