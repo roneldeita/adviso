@@ -10,7 +10,7 @@
             <br>
             <div class="row justify-content-md-center">
               <div class="col-md-5">
-                <p class="title txt-light-blue">Adviso Login</p>
+                <p class="title txt-light-blue">Admin Login</p>
                 <!-- <p>Login for Tax Clients Only</p> -->
                 <br>
                 <br>

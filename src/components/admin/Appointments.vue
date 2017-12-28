@@ -2,7 +2,14 @@
   <div>
     <div class="row no-gutters">
       <div class="col-md-12 appointment-container">
-        <el-input placeholder="" prefix-icon="el-icon-search" id="search"></el-input>
+        <!-- <el-input placeholder="" prefix-icon="el-icon-search" id="search"></el-input> -->
+        <div class="block text-left">
+          <el-date-picker
+            v-model="picker"
+            placeholder="Pick a day"
+            @change="changeDate()">
+          </el-date-picker>
+        </div>
         <el-menu :default-active="activeTab" class="el-menu-appointment" mode="horizontal" @select="handleSelect">
           <el-menu-item index="queries">QUERIES</el-menu-item>
           <el-menu-item index="schedules">SCHEDULE</el-menu-item>
@@ -17,18 +24,18 @@
                 <p>First Name: <b>{{props.row.first_name}}</b></p>
                 <p>Middle Name: <b>{{props.row.middle_name}}</b></p>
                 <p>Last Name: <b>{{props.row.last_name}}</b></p>
-                <p>Contact: <b>{{ props.row.number }}</b></p>
-                <p>Email: </p>
+                <p>Contact: <b>{{ props.row.contact }}</b></p>
+                <p>Email: <b>{{ props.row.email }}</b></p>
               </template>
             </el-table-column>
             <el-table-column
               label="DATE"
-              prop="requested_date"
+              prop="date"
               width="100">
             </el-table-column>
             <el-table-column
               label="TIME"
-              prop="requested_time"
+              prop="readable_time"
               width="90">
             </el-table-column>
             <el-table-column
@@ -42,7 +49,7 @@
             </el-table-column>
             <el-table-column
               label="CONTACT"
-              prop="number"
+              prop="contact"
               width="150">
             </el-table-column>
             <el-table-column
@@ -53,7 +60,7 @@
               label="OPERATIONS"
               width="150">
               <template slot-scope="scope">
-                <el-button v-if="scope.row.status === 'queue'"
+                <el-button v-if="scope.row.status === 0"
                   size="mini"
                   type="primary">Start <i class="el-icon-check el-icon-right"></i>
                 </el-button>
@@ -71,17 +78,6 @@
         <div v-if="activeTab === 'schedules'">
         </div>
       </div>
-      <!-- <div class="col-md-3 calendar-container">
-        <div class="block">
-          <el-date-picker
-            v-model="picker"
-            placeholder="Pick a day">
-          </el-date-picker>
-        </div>
-        <div style="background-color:#ffffff; height: 400px;margin-top:10px">
-          {{ picker }}
-        </div>
-      </div> -->
     </div>
   </div>
 </template>
@@ -94,60 +90,29 @@ export default {
       activeTab: 'queries',
       picker: new Date(),
       dialog: false,
-      appointments: [{
-        status: 'queue',
-        first_name: 'Ronel',
-        middle_name: 'Aparri',
-        last_name: 'Deita',
-        number: '0987654321',
-        requested_date: '2016-05-03',
-        requested_time: '9 : 00 AM',
-        agent: ''
-      }, {
-        status: 'in-progress',
-        first_name: 'Albert',
-        middle_name: 'Joy',
-        last_name: 'Nakpil',
-        number: '0987654321',
-        requested_date: '2016-05-03',
-        requested_time: '9 : 00 AM',
-        agent: ''
-      }, {
-        status: 'queue',
-        first_name: 'Miguel',
-        middle_name: 'Migul',
-        last_name: 'Napiza',
-        number: '0987654321',
-        requested_date: '2016-05-03',
-        requested_time: '9 : 00 AM',
-        agent: ''
-      }, {
-        status: 'queue',
-        first_name: 'Khalid',
-        middle_name: 'Omar',
-        last_name: 'Abdul',
-        number: '0987654321',
-        requested_date: '2016-05-03',
-        requested_time: '9 : 00 AM',
-        agent: ''
-      }, {
-        status: 'queue',
-        first_name: 'Jose',
-        middle_name: 'P',
-        last_name: 'Rizal',
-        number: '0987654321',
-        requested_date: '2016-05-03',
-        requested_time: '9 : 00 AM',
-        agent: ''
-      }]
+      appointments: []
     }
   },
   methods: {
     handleSelect (selectedTab) {
       this.activeTab = selectedTab
+    },
+    getAppointments (date) {
+      this.axios.get(process.env.API_URL + '/appointment/schedule/' + date)
+      .then(response => {
+        this.appointments = response.data
+      })
+      .catch(error => {
+        console.log(error.response.data)
+      })
+    },
+    changeDate () {
+      const convertDate = this.$moment(this.picker).format('YYYY-MM-DD')
+      this.getAppointments(convertDate)
     }
   },
-  created () {
+  mounted () {
+    this.getAppointments('2017-12-26')
   }
 
 }

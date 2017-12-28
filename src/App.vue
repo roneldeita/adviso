@@ -36,7 +36,10 @@ export default {
   data () {
     return {
       adminPages: [
-        'appointments'
+        'profile',
+        'appointments',
+        'subscriptions',
+        'masmailing'
       ],
       clientPages: [
         'index',

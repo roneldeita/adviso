@@ -44,7 +44,7 @@
       <div class="form-group">
         <el-form-item label="" prop="time">
           <el-select placeholder="Pick your time" v-model="appointmentForm.time" style="width:100%">
-            <el-option v-for="item in allowedTime" :value="item.time" :key="item.time">{{item.time}}</el-option>
+            <el-option v-for="item in allowedTime"  :disabled="disabledTime.includes(item.time)" :value="item.time" :key="item.time">{{item.time}}</el-option>
           </el-select>
           <!-- <el-time-select
             placeholder="Pick your time"
@@ -98,6 +98,7 @@ export default {
         contact: ''
       },
       allowedTime: [],
+      disabledTime: [],
       submitLoading: false,
       appointmentRules: {
         first_name: [
@@ -126,7 +127,7 @@ export default {
       dateOptions: {
         disabledDate (time) {
           // console.log(['2017/12/10'])
-          return [Date.parse('2017/12/10'), Date.parse('2017/12/12')].includes(time.getTime())
+          // return [Date.parse('2017/12/10'), Date.parse('2017/12/12')].includes(time.getTime())
           // console.log(time.getTime()) // the date from date picker
           // console.log() // the date todaty
           // return time.getTime() === Date.parse('2017/12/10')
@@ -152,24 +153,31 @@ export default {
       }
     },
     getDisabledTime () {
-      const listOfAllowedTime = [
-        '09 : 00 AM', '09 : 30 AM', '10 : 00 AM',
-        '10 : 30 AM', '11 : 00 AM', '11 : 30 AM',
-        '12 : 00 PM', '12 : 30 PM', '01 : 00 PM',
-        '01 : 30 PM', '02 : 00 PM', '02 : 30 PM',
-        '03 : 00 PM', '03 : 30 PM', '04 : 00 PM'
+      const allowedTime = [
+        {time: '09 : 00 AM'},
+        {time: '09 : 30 AM'},
+        {time: '10 : 00 AM'},
+        {time: '10 : 30 AM'},
+        {time: '11 : 00 AM'},
+        {time: '11 : 30 AM'},
+        {time: '12 : 00 PM'},
+        {time: '12 : 30 PM'},
+        {time: '01 : 00 PM'},
+        {time: '01 : 30 PM'},
+        {time: '02 : 00 PM'},
+        {time: '02 : 30 PM'},
+        {time: '03 : 00 PM'},
+        {time: '03 : 30 PM'},
+        {time: '04 : 00 PM'}
       ]
-      this.allowedTime = []
+      this.allowedTime = allowedTime
       this.axios.get(process.env.API_URL + '/appointment/' + this.getDate(this.appointmentForm.date))
       .then(response => {
         let disabledTime = []
         response.data.time.forEach(item => {
           disabledTime.push(item.readable_time)
         })
-        let time = this._.difference(listOfAllowedTime, disabledTime)
-        for (let i = 0; i < time.length; i++) {
-          this.allowedTime.push({time: time[i]})
-        }
+        this.disabledTime = disabledTime
       }).catch(error => {
         console.log(error)
       })
@@ -184,7 +192,7 @@ export default {
           this.axios.post(process.env.API_URL + '/appointment', copyData)
           .then(response => {
             if (response.data.message === 'Success') {
-              this.$alert('Congrats, Your request was submitted. One of our representative will contact you to set you up!', 'Congrats!', { confirmButtonText: 'OK', type: 'success' })
+              this.$alert('Congrats, Your request was submitted. One of our representative will contact you to set you up!', 'Success!', { confirmButtonText: 'OK', type: 'success' })
               this.resetForm()
               this.submitLoading = false
             }

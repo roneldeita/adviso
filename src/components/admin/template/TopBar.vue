@@ -1,11 +1,12 @@
 <template>
   <div class="topbar-container text-right">
     <!-- <el-badge is-dot class="item"> -->
-      <i class="fa fa-bell-o" aria-hidden="true"></i>
+    <i class="fa fa-bell-o" aria-hidden="true"></i>
     <!-- </el-badge> -->
     <el-dropdown @command="handleLogout">
       <i class="fa fa-user-circle" aria-hidden="true"></i>
       <el-dropdown-menu slot="dropdown">
+        <el-dropdown-item command="profile">Profile</el-dropdown-item>
         <el-dropdown-item command="settings">Settings</el-dropdown-item>
         <el-dropdown-item command="logout">Logout</el-dropdown-item>
       </el-dropdown-menu>
@@ -14,15 +15,26 @@
 </template>
 
 <script>
-import { logout } from '../../../assets/utils/auth.js'
+import { logout, getProfile } from '../../../assets/utils/auth.js'
 export default {
   name: 'topbar',
+  data () {
+    return {
+      profile: null
+    }
+  },
   methods: {
     handleLogout (command) {
       if (command === 'logout') {
         logout()
       }
+      if (command === 'profile') {
+        this.$router.push({name: 'profile'})
+      }
     }
+  },
+  mounted () {
+    this.profile = getProfile()
   }
 }
 </script>
@@ -39,6 +51,6 @@ export default {
   font-size: 28px;
 }
 .topbar-container{
-  padding:25px 20px;
+  padding:15px 10px;
 }
 </style>
