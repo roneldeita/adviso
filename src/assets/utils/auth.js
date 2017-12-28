@@ -1,5 +1,7 @@
 // import axios from 'axios';
-// import Router from 'vue-router'
+import Router from 'vue-router'
+
+var router = new Router()
 
 const ACCESS_TOKEN_KEY = 'access_token'
 const USER = 'user'
@@ -26,4 +28,21 @@ export function requireAuth (to, from, next) {
   } else {
     next()
   }
+}
+
+/* logout */
+export function logout () {
+  clearAccessToken()
+  clearProfile()
+
+  router.push('/')
+  location.reload()
+}
+
+function clearAccessToken () {
+  localStorage.removeItem(ACCESS_TOKEN_KEY)
+}
+
+function clearProfile () {
+  localStorage.removeItem(USER)
 }

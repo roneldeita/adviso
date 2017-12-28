@@ -3,19 +3,27 @@
     <!-- <el-badge is-dot class="item"> -->
       <i class="fa fa-bell-o" aria-hidden="true"></i>
     <!-- </el-badge> -->
-    <el-dropdown>
+    <el-dropdown @command="handleLogout">
       <i class="fa fa-user-circle" aria-hidden="true"></i>
       <el-dropdown-menu slot="dropdown">
-        <el-dropdown-item>Settings</el-dropdown-item>
-        <el-dropdown-item>Logout</el-dropdown-item>
+        <el-dropdown-item command="settings">Settings</el-dropdown-item>
+        <el-dropdown-item command="logout">Logout</el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
   </div>
 </template>
 
 <script>
+import { logout } from '../../../assets/utils/auth.js'
 export default {
-  name: 'topbar'
+  name: 'topbar',
+  methods: {
+    handleLogout (command) {
+      if (command === 'logout') {
+        logout()
+      }
+    }
+  }
 }
 </script>
 

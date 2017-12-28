@@ -5,13 +5,13 @@
       <div class="row justify-content-md-center">
         <div class="col-md-12" style="padding: 0 0 100px 0">
           <div class="form-container">
-            <router-link :to="{ name: 'index'}" class="pull-left" style="display:inline-block;padding-left:15px"><span class="fa fa-angle-left"></span> Back to main site</router-link>
-            <a href="https://app.canopytax.com/#/login" class="pull-right" style="display:inline-block;padding-right:15px">Adviso Client Login <span class="fa fa-angle-right"></span></a>
+            <!-- <router-link :to="{ name: 'index'}" class="pull-left" style="display:inline-block;padding-left:15px"><span class="fa fa-angle-left"></span> Back to main site</router-link>
+            <a href="https://app.canopytax.com/#/login" class="pull-right" style="display:inline-block;padding-right:15px">Adviso Client Login <span class="fa fa-angle-right"></span></a> -->
             <br>
             <div class="row justify-content-md-center">
               <div class="col-md-5">
-                <p class="title txt-light-blue">Adviso Premier Login</p>
-                <p>Login for Tax Clients Only</p>
+                <p class="title txt-light-blue">Adviso Login</p>
+                <!-- <p>Login for Tax Clients Only</p> -->
                 <br>
                 <br>
                 <div v-loading="submitLoading" element-loading-text="Signing in..." style="padding:5px">
@@ -33,13 +33,13 @@
                     <button type="button" class="btn btn-dark btn-block" @click="handleLogin('loginForm')">Login</button>
                   </el-form>
                 </div>
-                <br>
+                <!-- <br>
                 <p>Not a member yet? <br><router-link :to="{ name: 'register'}">Request an appointment</router-link></p>
                 <br>
                 <br>
                 <a href="/register" class="btn btn-text">Forgot password?</a>
                 <br>
-                <p>Terms & Condition</p>
+                <p>Terms & Condition</p> -->
               </div>
             </div>
           </div>
@@ -84,7 +84,8 @@ export default {
             localStorage.setItem('access_token', response.data.token)
             localStorage.setItem('user', JSON.stringify(response.data.user))
             if (isLoggedIn()) {
-              window.location = '/admin/appointments'
+              // window.location = '/admin/appointments'
+              this.$router.push({name: 'appointments'})
             }
             this.submitLoading = false
           })
@@ -98,6 +99,9 @@ export default {
         }
       })
     }
+  },
+  created () {
+    console.log(isLoggedIn())
   }
 }
 </script>
@@ -126,13 +130,13 @@ export default {
 
 <style scoped>
   .logo{
-    height: 100px;
-    margin: 60px 0;
+    height: 80px;
+    margin: 20px 0;
   }
   .form-container{
     background: rgb(255, 255, 255); /* Fall-back for browsers that don't support rgba */
-    background: rgba(255,255,255, 0.7);
-    height: 680px;
+    /* background: rgba(255,255,255, 0.7); */
+    height: 550px;
     padding:25px 10px;
     -moz-box-shadow:    1px 5px 10px 0px #ccc;
     -webkit-box-shadow: 1px 5px 10px 0px #ccc;

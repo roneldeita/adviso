@@ -44,7 +44,7 @@
       <div class="form-group">
         <el-form-item label="" prop="time">
           <el-select placeholder="Pick your time" v-model="appointmentForm.time" style="width:100%">
-            <el-option v-for="item in allowedTime" :value="item.time">{{item.time}}</el-option>
+            <el-option v-for="item in allowedTime" :value="item.time" :key="item.time">{{item.time}}</el-option>
           </el-select>
           <!-- <el-time-select
             placeholder="Pick your time"

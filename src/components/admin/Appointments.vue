@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="row no-gutters">
-      <div class="col-md-9 appointment-container">
+      <div class="col-md-12 appointment-container">
         <el-input placeholder="" prefix-icon="el-icon-search" id="search"></el-input>
         <el-menu :default-active="activeTab" class="el-menu-appointment" mode="horizontal" @select="handleSelect">
           <el-menu-item index="queries">QUERIES</el-menu-item>
@@ -51,11 +51,19 @@
             </el-table-column>
             <el-table-column
               label="OPERATIONS"
-              width="110">
+              width="150">
               <template slot-scope="scope">
-                <el-button
+                <el-button v-if="scope.row.status === 'queue'"
                   size="mini"
-                  type="primary">Queue</el-button>
+                  type="primary">Start <i class="el-icon-check el-icon-right"></i>
+                </el-button>
+                <el-dropdown v-if="scope.row.status === 'in-progress'" split-button type="primary" size="mini" @click="">
+                  In Progress
+                  <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item>Queue</el-dropdown-item>
+                    <el-dropdown-item>Verified</el-dropdown-item>
+                  </el-dropdown-menu>
+                </el-dropdown>
               </template>
             </el-table-column>
           </el-table>
@@ -63,8 +71,7 @@
         <div v-if="activeTab === 'schedules'">
         </div>
       </div>
-      <div class="col-md-3 calendar-container">
-        <!-- <v-date-picker color="blue-grey darken-2" v-model="picker" style="width:100%"></v-date-picker> -->
+      <!-- <div class="col-md-3 calendar-container">
         <div class="block">
           <el-date-picker
             v-model="picker"
@@ -74,7 +81,7 @@
         <div style="background-color:#ffffff; height: 400px;margin-top:10px">
           {{ picker }}
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -88,45 +95,50 @@ export default {
       picker: new Date(),
       dialog: false,
       appointments: [{
+        status: 'queue',
         first_name: 'Ronel',
         middle_name: 'Aparri',
         last_name: 'Deita',
         number: '0987654321',
         requested_date: '2016-05-03',
         requested_time: '9 : 00 AM',
-        agent: 'Chris Villanueva'
+        agent: ''
       }, {
+        status: 'in-progress',
         first_name: 'Albert',
         middle_name: 'Joy',
         last_name: 'Nakpil',
         number: '0987654321',
         requested_date: '2016-05-03',
         requested_time: '9 : 00 AM',
-        agent: 'Chris Villanueva'
+        agent: ''
       }, {
+        status: 'queue',
         first_name: 'Miguel',
         middle_name: 'Migul',
         last_name: 'Napiza',
         number: '0987654321',
         requested_date: '2016-05-03',
         requested_time: '9 : 00 AM',
-        agent: 'Chris Villanueva'
+        agent: ''
       }, {
+        status: 'queue',
         first_name: 'Khalid',
         middle_name: 'Omar',
         last_name: 'Abdul',
         number: '0987654321',
         requested_date: '2016-05-03',
         requested_time: '9 : 00 AM',
-        agent: 'Chris Villanueva'
+        agent: ''
       }, {
+        status: 'queue',
         first_name: 'Jose',
         middle_name: 'P',
         last_name: 'Rizal',
         number: '0987654321',
         requested_date: '2016-05-03',
         requested_time: '9 : 00 AM',
-        agent: 'Chris Villanueva'
+        agent: ''
       }]
     }
   },
@@ -144,7 +156,7 @@ export default {
 <style scoped>
   .appointment-container{
     padding: 0 20px !important;
-    margin-top: -60px;
+    margin-top: 0px;
   }
   .calendar-container{
     padding-right: 20px !important

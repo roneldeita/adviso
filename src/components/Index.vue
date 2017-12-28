@@ -73,8 +73,8 @@
               <div class="col-md-6">
                 <img src="../assets/images/Start_Up_Icon.png" alt="" style="width:50%">
               </div>
-              <div class="col-md-6" style="text-align : left">
-                <div style="flex-direction :row; display : flex;">
+              <div class="col-md-6 text-left">
+                <div style="flex-direction:row; display:flex; margin-top:25px">
                   <i class="icon pe-7s-headphones" style="margin-right : 10px"></i>
                   <h4 style="justify-self : center;">Start-Up Business Consulting</h4>
                 </div>
@@ -85,7 +85,7 @@
               <div class="col-md-6" style="text-align : left">
                 <div style="flex-direction :row; display : flex;">
                   <i class="icon pe-7s-calculator" style="margin-right : 10px"></i>
-                  <h4>Tax Preparation</h4>
+                  <h4 style="margin-top:10px">Tax Preparation</h4>
                 </div>
                 <p>We offer preparation services for both individual and business tax  returns. All services are backed with free Audit representation* </p>
               </div>
@@ -100,7 +100,7 @@
               <div class="col-md-6" style="text-align : left">
                 <div style="flex-direction :row; display : flex;">
                   <i class="icon pe-7s-key" style="margin-right : 10px"></i>
-                  <h4 style="justify-self : center;">Tax Resolution</h4>
+                  <h4 style="justify-self : center; margin-top:15px">Tax Resolution</h4>
                 </div>
                 <p>Received a notice from the IRS? One of our Enrolled Agents will be able to assist you every step of the way. </p>
               </div>
@@ -109,7 +109,7 @@
               <div class="col-md-6" style="text-align : left">
                 <div style="flex-direction :row; display : flex;">
                   <i class="icon pe-7s-bookmarks" style="margin-right : 10px"></i>
-                  <h4>Bookkeeping</h4>
+                  <h4 style="margin-top:10px">Bookkeeping</h4>
                 </div>
                 <p>Maintaining proper books is critical to any business, big or small. Whether you just need someone to clean up your books, or need someone regularly maintaining them, we have you covered. </p>
               </div>

@@ -11,26 +11,30 @@
         background-color="#545c64"
         text-color="#fff"
         active-text-color="#ffd04b">
-        <el-menu-item index="1" >
+        <!-- <el-menu-item index="1" >
           <i class="fa fa-stack-overflow" aria-hidden="true"></i>
           <span>Tax Queries</span>
-        </el-menu-item>
+        </el-menu-item> -->
         <el-menu-item index="2">
           <i class="fa fa-calendar" aria-hidden="true"></i>
           <span>Appointments</span>
+        </el-menu-item>
+        <el-menu-item index="1" >
+          <i class="fa fa-check-square-o" aria-hidden="true"></i>
+          <span>Subscription</span>
         </el-menu-item>
         <el-menu-item index="3">
           <i class="fa fa-envelope-o" aria-hidden="true"></i>
           <span>Mass Mailing</span>
         </el-menu-item>
-        <el-menu-item index="4">
+        <!-- <el-menu-item index="4">
           <i class="fa fa-users" aria-hidden="true"></i>
           <span>Directory</span>
         </el-menu-item>
         <el-menu-item index="5">
           <i class="fa fa-archive" aria-hidden="true"></i>
           <span>Resources</span>
-        </el-menu-item>
+        </el-menu-item> -->
       </el-menu>
     </div>
 </template>
