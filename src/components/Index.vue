@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="home">
-      <el-carousel :interval="5000" arrow="never" height="600px">
+      <el-carousel :interval="5000" arrow="never" height="600px" indicator-position="none">
         <el-carousel-item v-for="banner in banners" :key="banner.id" >
           <div class="background-img" :style="{ 'background-image': 'url(' + banner.img + ')' }">
             <div class="container">
@@ -25,7 +25,7 @@
           <div class="col-md-8">
             <div class="row">
               <div class="col-md-5">
-                <img src="../assets/images/Lens.png" alt="" style="width:70%">
+                <img src="../assets/images/focus.png" alt="" style="width:80%">
               </div>
               <div class="col-md-7">
                 <p class="title">YOU ARE OUR FOCUS</p>
@@ -84,7 +84,7 @@
             <div class="row" style="margin-bottom : 100px">
               <div class="col-md-6" style="text-align : left">
                 <div style="flex-direction :row; display : flex;">
-                  <i class="icon pe-7s-calculator" style="margin-right : 10px"></i>
+                  <i class="icon pe-7s-calculator" style="margin-right : 2px"></i>
                   <h4 style="margin-top:10px">Tax Preparation</h4>
                 </div>
                 <p>We offer preparation services for both individual and business tax  returns. All services are backed with free Audit representation* </p>

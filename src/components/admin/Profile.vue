@@ -1,9 +1,24 @@
 <template>
   <div class="container">
     <div class="row no-gutters">
-      <div class="col-md-12 appointment-container">
-        <h1>Profile</h1>
-        <p>{{ profile }}</p>
+      <div class="col-md-12 profile-container">
+        <br>
+        <el-card class="box-card text-left">
+          <div slot="header" class="txt-light-blue">
+            <span></h5> Account Access</span>
+          </div>
+          <p>Identification number: <b>{{profile.no}}</b></p>
+          <p>Email : <b>{{profile.email}}</b></p>
+        </el-card>
+        <br>
+        <el-card class="box-card text-left">
+          <div slot="header" class="txt-light-blue">
+            <span>Account Profile</span>
+          </div>
+          <p>First Name:</p>
+          <p>Middle Name:</p>
+          <p>Last Name:</p>
+        </el-card>
       </div>
     </div>
   </div>
@@ -18,13 +33,17 @@ export default {
     }
   },
   mounted () {
-    this.profile = getProfile()
+    this.profile = JSON.parse(getProfile())
   }
 }
 </script>
 <style scoped>
-.appointment-container{
-  padding: 0 20px !important;
+.profile-container{
+  padding: 0 5px !important;
   margin-top: 0px;
+}
+.box-card{
+  margin: 0;
+  box-shadow: none
 }
 </style>

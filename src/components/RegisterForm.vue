@@ -36,7 +36,7 @@
             placeholder="Pick a day"
             :picker-options="dateOptions"
             style="width:100%"
-            @blur="getDisabledTime()"
+            @change="getDisabledTime()"
             >
           </el-date-picker>
         </el-form-item>
@@ -75,7 +75,7 @@
       </div>
       <div class="form-group">
         <el-form-item label="" prop="contact">
-          <el-input type="number" :controls="false"  placeholder="Phone Number" v-model.number="appointmentForm.contact"></el-input>
+          <el-input type="number" :controls="false"  placeholder="Phone Number" v-model.number="appointmentForm.contact" @keyup.native="convertToNumber"></el-input>
         </el-form-item>
       </div>
       <br>
@@ -115,7 +115,7 @@ export default {
         ],
         contact: [
           { required: true, message: 'Your phone number is required', trigger: 'blur' },
-          { type: 'number', message: 'Must be of type number', trigger: 'blur' }
+          { len: 10, message: 'Should be exactly 10 digits', trigger: 'blur' }
         ],
         date: [
           { required: true, message: 'Your desired date is required', trigger: 'change' }
@@ -153,36 +153,31 @@ export default {
       }
     },
     getDisabledTime () {
+      this.appointmentForm.time = null
       const allowedTime = [
-        {time: '09 : 00 AM'},
-        {time: '09 : 30 AM'},
-        {time: '10 : 00 AM'},
-        {time: '10 : 30 AM'},
-        {time: '11 : 00 AM'},
-        {time: '11 : 30 AM'},
-        {time: '12 : 00 PM'},
-        {time: '12 : 30 PM'},
-        {time: '01 : 00 PM'},
-        {time: '01 : 30 PM'},
-        {time: '02 : 00 PM'},
-        {time: '02 : 30 PM'},
-        {time: '03 : 00 PM'},
-        {time: '03 : 30 PM'},
-        {time: '04 : 00 PM'}
+        {time: '09 : 00 AM'}, {time: '09 : 30 AM'}, {time: '10 : 00 AM'},
+        {time: '10 : 30 AM'}, {time: '11 : 00 AM'}, {time: '11 : 30 AM'},
+        {time: '12 : 00 PM'}, {time: '12 : 30 PM'}, {time: '01 : 00 PM'},
+        {time: '01 : 30 PM'}, {time: '02 : 00 PM'}, {time: '02 : 30 PM'},
+        {time: '03 : 00 PM'}, {time: '03 : 30 PM'}, {time: '04 : 00 PM'}
       ]
-      this.allowedTime = allowedTime
       this.axios.get(process.env.API_URL + '/appointment/' + this.getDate(this.appointmentForm.date))
       .then(response => {
         let disabledTime = []
         response.data.time.forEach(item => {
           disabledTime.push(item.readable_time)
         })
+        this.allowedTime = allowedTime
         this.disabledTime = disabledTime
       }).catch(error => {
         console.log(error)
       })
     },
+    convertToNumber (num) {
+      this.appointmentForm.contact = this.appointmentForm.contact.toString()
+    },
     handleAppointment (formName) {
+      this.convertToNumber()
       this.$refs[formName].validate((valid) => {
         if (valid) {
           this.submitLoading = true
