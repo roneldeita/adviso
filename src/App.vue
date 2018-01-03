@@ -33,6 +33,14 @@ import AdminTopbar from './components/admin/template/Topbar.vue'
 
 export default {
   name: 'app',
+  metaInfo: {
+    title: 'Adviso',
+    titleTemplate: '%s | Tax & Business Services',
+    meta: [
+      { name: 'description', content: 'Adviso Tas & Business Services' },
+      { name: 'keywords', content: 'Tax, Tax Preparation, Tax Preparer, State Tax, California Tax, Enrolled Agent, EA, CTEC Certified, Accounting, Bookkeeping, Tax Resolution, Tax Issues, Tax problem, California Tax Preparer, Long Beach Tax Preparer, Los Angeles Tax Preparer, LA Taxes, LA Tax Preparer' }
+    ]
+  },
   data () {
     return {
       adminPages: [

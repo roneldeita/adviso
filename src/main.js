@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store'
 import ElementUI from 'element-ui'// ElementUi
 import locale from 'element-ui/lib/locale/lang/en'
 import * as VueGoogleMaps from 'vue2-google-maps'
@@ -31,6 +32,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 })

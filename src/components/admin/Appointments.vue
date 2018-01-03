@@ -37,12 +37,12 @@
             <el-table-column
               label="DATE"
               prop="date"
-              width="100">
+              width="120">
             </el-table-column>
             <el-table-column
               label="TIME"
               prop="readable_time"
-              width="90">
+              width="110">
               <template slot-scope="scope">
                 <span>{{scope.row.readable_time}} </span>
               </template>
@@ -63,24 +63,39 @@
             </el-table-column>
             <el-table-column
               label="AGENT"
-              prop="agent">
+              prop="adminEmail">
             </el-table-column>
             <el-table-column
               label="OPERATIONS"
               width="150">
               <template slot-scope="scope">
+                <!-- Queue -->
                 <el-button v-if="scope.row.status === 0"
                   size="mini"
                   type="primary"
                   @click="changeStatus(scope.row.id, 1)">Start <i class="el-icon-check el-icon-right"></i>
                 </el-button>
-                <el-dropdown v-if="scope.row.status === 1" split-button type="primary" size="mini" @command="handleCommand">
+                <!-- In progress -->
+                <el-button v-if="scope.row.status === 1 && advisoProfile.email != scope.row.adminEmail"
+                  size="mini"
+                  type="warning"
+                  :disabled="true">In Progress</i>
+                </el-button>
+                <el-dropdown v-if="scope.row.status === 1 && advisoProfile.email === scope.row.adminEmail" split-button type="primary" size="mini" @command="handleCommand">
                   In Progress
                   <el-dropdown-menu slot="dropdown">
                     <el-dropdown-item :command="[scope.row.id, 0]">Queue</el-dropdown-item>
+                    <el-dropdown-item :command="[scope.row.id, 2]">Cancel</el-dropdown-item>
                     <el-dropdown-item :command="[scope.row.id, 3]">Verified</el-dropdown-item>
                   </el-dropdown-menu>
                 </el-dropdown>
+                <!-- Cancelled -->
+                <el-button v-if="scope.row.status === 2"
+                  size="mini"
+                  type="danger"
+                  :disabled="true">Cancelled</i>
+                </el-button>
+                <!-- Verified -->
                 <el-button v-if="scope.row.status === 3"
                   size="mini"
                   type="success"
@@ -100,6 +115,11 @@
 <script>
 export default {
   name: 'appointments',
+  computed: {
+    advisoProfile: function () {
+      return this.$store.getters.advisoProfile
+    }
+  },
   data () {
     return {
       loading: true,
@@ -121,7 +141,6 @@ export default {
       .then(response => {
         this.appointments = response.data
         this.loading = false
-        console.log(this.appointments)
       })
       .catch(error => {
         console.log(error.response.data)
@@ -132,9 +151,11 @@ export default {
       this.changeStatus(command[0], command[1])
     },
     changeStatus (apppointmentId, apppointmenStatus) {
-      if (apppointmenStatus === 1) {
+      var adminEmail = this.advisoProfile.email
+      if (apppointmenStatus === 0) {
+        adminEmail = ''
       }
-      this.axios.post(process.env.API_URL + '/appointment/update/', {id: apppointmentId, status: apppointmenStatus})
+      this.axios.post(process.env.API_URL + '/appointment/update/', {id: apppointmentId, status: apppointmenStatus, email: adminEmail})
       .then(response => {
         this.getAppointments(this.convertDate(this.picker))
       })

@@ -24,6 +24,11 @@
         <div class="row justify-content-md-center">
           <div class="col-md-8">
             <div class="row">
+              <div class="col-md-12">
+                <img class="img-fluid mx-auto" src="../assets/images/certificate.jpg" alt="certificate" style="display:block; width:500px" />
+                <br>
+                <br>
+              </div>
               <div class="col-md-5">
                 <img src="../assets/images/focus.png" alt="" style="width:80%">
               </div>
