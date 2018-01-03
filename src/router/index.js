@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Meta from 'vue-meta'
 import Index from '@/components/Index'
 import Login from '@/components/Login'
 // import Register from '@/components/Register'
@@ -14,16 +13,15 @@ import NotFound from '@/components/NotFound'
 import { requireAuth } from '../assets/utils/auth'
 
 Vue.use(Router)
-Vue.use(Meta)
 
 export default new Router({
   routes: [
-    {path: '/', name: 'index', component: Index},
-    {path: '/home', name: 'index', component: Index},
-    {path: '/about', name: 'index', component: Index},
-    {path: '/services', name: 'index', component: Index},
-    {path: '/team', name: 'index', component: Index},
-    {path: '/contact', name: 'index', component: Index},
+    {path: '/', name: 'index', component: Index, alias: ['/home', '/about', '/services', '/team', '/contact']},
+    // {path: '/home', name: 'index', component: Index},
+    // {path: '/about', name: 'index', component: Index},
+    // {path: '/services', name: 'index', component: Index},
+    // {path: '/team', name: 'index', component: Index},
+    // {path: '/contact', name: 'index', component: Index},
     {path: '/login', name: 'login', component: Login},
     // {path: '/register', name: 'register', component: Register},
     {path: '*', component: NotFound},
