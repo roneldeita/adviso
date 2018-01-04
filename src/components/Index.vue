@@ -1,19 +1,22 @@
 <template>
   <div>
     <div id="home">
-      <el-carousel :interval="5000" arrow="never" height="600px" indicator-position="none">
+      <el-carousel :interval="5000" arrow="never" height="100vh">
         <el-carousel-item v-for="banner in banners" :key="banner.id" >
           <div class="background-img" :style="{ 'background-image': 'url(' + banner.img + ')' }">
-            <div class="container">
-              <div class="row justify-content-md-center">
-                <div class="col-md-8 text-left" style="padding-top:225px;">
-                  <p class="title">Your taxes done right.</p>
-                  <p class="subtitle">Find out what it means to be part of the Adviso Family. </p>
-                  <p class="subtitle">Schedule a FREE Tax, Accounting or Business Consultation today.</p>
-                  <br>
-                  <a href="#appointment" class="btn btn-dark">Setup Free Consultation</a>
+            <div class="container-fluid">
+              <div v-if="banner.id === 1">
+                <div class="row">
+                  <div class="col-md-6 text-left border" style="padding-top:50vh;">
+                    <p class="title">Your taxes done right.</p>
+                    <p class="subtitle">Find out what it means to be part of the Adviso Family. </p>
+                    <p class="subtitle">Schedule a FREE Tax, Accounting or Business Consultation today.</p>
+                    <br>
+                    <a href="#appointment" class="btn btn-dark">Setup Free Consultation</a>
+                  </div>
                 </div>
               </div>
+              <div v-if="banner.id === 2"> 2</div>
             </div>
           </div>
         </el-carousel-item>
@@ -289,6 +292,9 @@
 <script>
 import RegisterForm from './RegisterForm.vue'
 import mapStyle from '../../static/json/map.json'
+import bannerImg1 from '../assets/images/homepage/web_banner1.jpg'
+import bannerImg2 from '../assets/images/homepage/web_banner2.jpg'
+
 export default {
   name: 'index',
   data () {
@@ -298,7 +304,8 @@ export default {
       marker: {lat: 33.770098, lng: -118.189764},
       style: mapStyle,
       banners: [
-        { id: 1, img: '/static/homepage/1.jpg' }
+        { id: 1, img: bannerImg1 },
+        { id: 2, img: bannerImg2 }
       ]
     }
   },
@@ -315,6 +322,7 @@ export default {
   .el-carousel .background-img{
     background-repeat: no-repeat;
     background-size: cover;
+    width: 100%;
     height: 100%;
   }
   .el-carousel .title{
