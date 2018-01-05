@@ -7,16 +7,69 @@
             <div class="container-fluid">
               <div v-if="banner.id === 1">
                 <div class="row">
-                  <div class="col-md-6 text-left border" style="padding-top:50vh;">
-                    <p class="title">Your taxes done right.</p>
-                    <p class="subtitle">Find out what it means to be part of the Adviso Family. </p>
-                    <p class="subtitle">Schedule a FREE Tax, Accounting or Business Consultation today.</p>
-                    <br>
-                    <a href="#appointment" class="btn btn-dark">Setup Free Consultation</a>
+                  <div class="col-md-6 text-left banner1-content text-center">
+                    <div class="opacity-bg">
+                      <p class="title">SECURE.</p>
+                      <p class="title">ACCURATE.</p>
+                      <p class="title">TRUSTWORTHY.</p>
+                      <p class="subtitle1">Your taxes are personal. Shouldn't</p>
+                      <p class="subtitle1">your experience be as well?</p>
+                      <a href="#appointment" class="btn btn-primary">Setup a Free Consultation</a>
+                      <p class="subtitle2">Find out the many benefits with being</p>
+                      <p class="subtitle2">part of the ADVISO family. Schedule a</p>
+                      <p class="subtitle2"><i>FREE CONSULTATION TODAY!</i></p>
+                    </div>
+                  </div>
+                  <div class="col-md-6" style="display: flex; align-items: center; justify-content:center;">
+                    <div class="bg-dark-blue" style="margin-top:60vh; padding:10px 25px; border-radius:10px">
+                      <p style="margin:0; font-family: Times;"><i>"Proud to be part of the adviso Family"</i></p>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div v-if="banner.id === 2"> 2</div>
+              <div v-if="banner.id === 2">
+                <div class="row">
+                  <div class="col-md-6" style="display: flex; align-items: center; justify-content:center;">
+                    <div class="bg-dark-blue" style="margin-top:60vh; padding:5px 25px; border-radius:10px">
+                      <p style="margin:0; font-family: Times;"><i>Laura Guerrero (EA)</i></p>
+                      <p style="margin:0; font-family: Times;"><i>Partner</i></p>
+                    </div>
+                  </div>
+                  <div class="col-md-6 text-left banner2-content text-center">
+                    <div class="opacity-bg">
+                      <p class="title">EVERY RETURN</p>
+                      <p class="title">IS REVIEWED BY AN</p>
+                      <p class="title">ENROLLED AGENT (EA)</p>
+                      <img src="../assets/images/EA_logo.jpg" class="img-fluid" style="max-width:350px; margin-bottom:15px;" />
+                      <p class="subtitle">*Enrolled Agents are authorized to represent a</p>
+                      <p class="subtitle">taxpayer before the IRS, and holds the highest</p>
+                      <p class="subtitle">credentials awarded by the IRS.</p>
+                      <a href="#appointment" class="btn btn-primary">Setup a Free Consultation</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div v-if="banner.id === 3">
+                <div class="row">
+                  <div class="col-md-6 text-left banner3-content text-center">
+                    <div class="opacity-bg">
+                      <p class="title">OPEN ALL YEAR!</p>
+                      <p class="subtitle1">Life's situations never stops, so why</p>
+                      <p class="subtitle1">should we? As many tax offices close for</p>
+                      <p class="subtitle1">The season, we stay open all year long to</p>
+                      <p class="subtitle1">take your calls and meet with you if</p>
+                      <p class="subtitle1">needed. It's what family is all about.</p>
+                      <a href="#appointment" class="btn btn-primary">Setup a Free Consultation</a>
+                    </div>
+                  </div>
+                  <div class="col-md-6" style="display: flex; align-items: center; justify-content:center;">
+                    <div class="bg-dark-blue" style="margin-top:60vh; padding:5px 25px; border-radius:10px">
+                      <p style="margin:0; font-family: Times;"><i>Christopher Villanueva</i></p>
+                      <p style="margin:0; font-family: Times;"><i>Business Consultant - Partner</i></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </el-carousel-item>
@@ -37,7 +90,7 @@
               </div>
               <div class="col-md-7">
                 <p class="title">YOU ARE OUR FOCUS</p>
-                <p>Here at Adviso, you’re seen as family. Taxes and various business hurdles can often take you away from what “you” love.  We believe in providing our clients a peace of mind by offering a service that is catered to your unique situation and is built around your specific needs.  Reach out to us today for a free consultation to find out how Adviso can get you back to doing what you love, and leave the stresses of taxes and accounting to us.</p>
+                <p style="font-weight:400">Here at Adviso, you’re seen as family. Taxes and various business hurdles can often take you away from what “you” love.  We believe in providing our clients a peace of mind by offering a service that is catered to your unique situation and is built around your specific needs.  Reach out to us today for a free consultation to find out how Adviso can get you back to doing what you love, and leave the stresses of taxes and accounting to us.</p>
               </div>
             </div>
           </div>
@@ -79,14 +132,23 @@
           <div class="col-md-8">
             <div class="row" style="margin-bottom : 100px">
               <div class="col-md-6">
-                <img src="../assets/images/Start_Up_Icon.png" alt="" style="width:50%">
+                <img src="../assets/images/Start_Up_Icon.png" alt="" style="width:50%; margin-top:30px;">
               </div>
               <div class="col-md-6 text-left">
                 <div style="flex-direction:row; display:flex; margin-top:25px">
                   <i class="icon pe-7s-headphones" style="margin-right : 10px"></i>
                   <h4 style="justify-self : center;">Start-Up Business Consulting</h4>
                 </div>
-                <p>Don’t know where to begin? No problem! We’ll help you every step of the way from idea to execution. </p>
+                <p style="font-weight:500">Don’t know where to begin? No problem! We’ll help you every step of the way from idea to execution. </p>
+                <ul style="margin-left:-20px">
+                  <li>Business Plans</li>
+                  <li>Business Consulting</li>
+                  <li>DBA Setup</li>
+                  <li>EIN Setup</li>
+                  <li>Business Account Setup</li>
+                  <li>Business Formations</li>
+                  <li>Business License Setup</li>
+                </ul>
               </div>
             </div>
             <div class="row" style="margin-bottom : 100px">
@@ -95,7 +157,15 @@
                   <i class="icon pe-7s-calculator" style="margin-right : 2px"></i>
                   <h4 style="margin-top:10px">Tax Preparation</h4>
                 </div>
-                <p>We offer preparation services for both individual and business tax  returns. All services are backed with free Audit representation* </p>
+                <p style="font-weight:500">We offer preparation services for both individual and business tax  returns. All services are backed with free Audit representation* </p>
+                <ul style="margin-left:-20px">
+                  <li>Free Tax Consultations</li>
+                  <li>Individual Tax Returns</li>
+                  <li>Business Tax Returns</li>
+                  <li>Prepaid Card Option</li>
+                  <li>No Upfront Fee Option</li>
+                  <li>Refund Advance Option</li>
+                </ul>
               </div>
               <div class="col-md-6">
                 <img src="../assets/images/TaxPreparation_Icon.png" alt="" style="width:50%">
@@ -110,7 +180,18 @@
                   <i class="icon pe-7s-key" style="margin-right : 10px"></i>
                   <h4 style="justify-self : center; margin-top:15px">Tax Resolution</h4>
                 </div>
-                <p>Received a notice from the IRS? One of our Enrolled Agents will be able to assist you every step of the way. </p>
+                <p style="font-weight:500">Received a notice from the IRS? One of our Enrolled Agents will be able to assist you every step of the way. </p>
+                <ul style="margin-left:-20px">
+                  <li>Free Consultation</li>
+                  <li>Penalty Abatement</li>
+                  <li>Audit Representation</li>
+                  <li>Innocent Spouse Relief</li>
+                  <li>Installmemt Plans</li>
+                  <li>State Tax Issues</li>
+                  <li>Federal Tax Issues</li>
+                  <li>Offer in Compromise</li>
+                  <li>Currently not collectible</li>
+                </ul>
               </div>
             </div>
             <div class="row" style="margin-bottom : 100px">
@@ -119,7 +200,14 @@
                   <i class="icon pe-7s-bookmarks" style="margin-right : 10px"></i>
                   <h4 style="margin-top:10px">Bookkeeping</h4>
                 </div>
-                <p>Maintaining proper books is critical to any business, big or small. Whether you just need someone to clean up your books, or need someone regularly maintaining them, we have you covered. </p>
+                <p style="font-weight:500">Maintaining proper books is critical to any business, big or small. Whether you just need someone to clean up your books, or need someone regularly maintaining them, we have you covered. </p>
+                <ul style="margin-left:-20px">
+                  <li>Payroll Setup</li>
+                  <li>Financial Statements</li>
+                  <li>Sales Tax</li>
+                  <li>Reconcile Bank Accounts</li>
+                  <li>Cleaning up of Books</li>
+                </ul>
               </div>
               <div class="col-md-6">
                 <img src="../assets/images/Bookkeeping_Icon.png" alt="" style="width:50%">
@@ -248,7 +336,13 @@
                       <p class="icon pe-7s-call"></p>
                       562.731.2312
                     </li>
-                  </ul>
+                </ul>
+                <div style="font-size:24px">
+                  <a href="https://www.yelp.com/biz/adviso-tax-and-business-services-long-beach" target="_blank" class="txt-dark-blue"><i class="fa fa-yelp" aria-hidden="true" style="padding:0 10px;"></i></a>
+                  <a href="https://www.facebook.com/advisotaxandbusinessservices/" target="_blank" class="txt-dark-blue"><i class="fa fa-facebook-square" aria-hidden="true" style="padding:0 10px;"></i></a>
+                  <a href="https://www.instagram.com/advisotax/" target="_blank" class="txt-dark-blue"><i class="fa fa-instagram" aria-hidden="true" style="padding:0 10px;"></i></a>
+                </div>
+
               </div>
             </div>
           </div>
@@ -292,8 +386,9 @@
 <script>
 import RegisterForm from './RegisterForm.vue'
 import mapStyle from '../../static/json/map.json'
-import bannerImg1 from '../assets/images/homepage/web_banner1.jpg'
-import bannerImg2 from '../assets/images/homepage/web_banner2.jpg'
+import bannerImg1 from '../assets/images/homepage/Web_Banner1.jpg'
+import bannerImg2 from '../assets/images/homepage/Web_Banner2.jpg'
+import bannerImg3 from '../assets/images/homepage/Web_Banner3.jpg'
 
 export default {
   name: 'index',
@@ -305,7 +400,8 @@ export default {
       style: mapStyle,
       banners: [
         { id: 1, img: bannerImg1 },
-        { id: 2, img: bannerImg2 }
+        { id: 2, img: bannerImg2 },
+        { id: 3, img: bannerImg3 }
       ]
     }
   },
@@ -324,14 +420,66 @@ export default {
     background-size: cover;
     width: 100%;
     height: 100%;
+    color: #ffffff;
   }
-  .el-carousel .title{
-    font-size: 40px;
-    line-height: 38px;
-    font-weight: 800;
-  }
-  .el-carousel .subtitle{
+  .el-carousel .subtitle1{
+    font-size: 20px;
+    font-weight: 400;
     margin: 0px;
+  }
+  .el-carousel .subtitle2{
+    font-size: 14px;
+    font-weight: 200;
+    margin: 0px;
+  }
+  .banner1-content,
+  .banner3-content{
+    height:110vh;
+    padding:0;
+    display:flex;
+    align-items:center;
+  }
+  .banner2-content{
+    height:110vh;
+    padding:0;
+    display:flex;
+    align-items:center;
+    justify-content: flex-end
+  }
+  .banner2-content .subtitle{
+    font-size: 14px;
+    font-weight: 300;
+    margin: 0px;
+  }
+  .banner1-content .title,
+  .banner3-content .title{
+    font-size: 38px;
+    line-height: 30px;
+    font-weight: 700;
+  }
+  .banner2-content .title{
+    font-size: 34px;
+    line-height: 30px;
+    font-weight: 700;
+  }
+  .banner1-content .opacity-bg{
+    background-color: rgba(49, 60, 68, 0.7);
+    padding:60px 70px 50px 220px;
+  }
+  .banner2-content .opacity-bg{
+    background-color: rgba(49, 60, 68, 0.7);
+    padding:60px 220px 50px 70px;
+  }
+  .banner3-content .opacity-bg{
+    background-color: rgba(49, 60, 68, 0.7);
+    padding:70px 80px 60px 220px;
+  }
+  .banner1-content .btn-primary,
+  .banner2-content .btn-primary,
+  .banner3-content .btn-primary{
+    margin:12px 0;
+    padding-left:40px;
+    padding-right:40px
   }
   .el-carousel .btn-dark{
     padding-left: 50px;

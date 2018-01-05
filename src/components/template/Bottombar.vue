@@ -9,10 +9,10 @@
               <p class="address">Long Beach Office, 235 E. Broadway Ste 800, Long Beach, CA 90802</p>
               <p class="contact txt-light-blue">562.731.2312</p>
             </div>
-            <div class = "col-md-4">
+            <div class = "col-md-5">
             </div>
-            <div class="col-md-4">
-              <div style="margin-left:60px;">
+            <div class="col-md-3">
+              <div>
                 <p class="quick-links text-left"><span style="text-decoration">QUIC</span>K LINKS</p>
                 <p style="border-top:1px solid white; width:35px; margin-top:-15px"></p>
                 <ul class="link-list text-left">

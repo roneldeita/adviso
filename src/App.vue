@@ -98,6 +98,12 @@ body, html {
 .txt-light-blue{
   color:#00aff0
 }
+.txt-dark-blue{
+  color: #313c44
+}
+.txt-dark-blue:hover{
+  color: #00aff0
+}
 .bg-dark-blue{
   background-color: #313c44
 }
