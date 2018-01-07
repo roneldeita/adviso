@@ -22,7 +22,7 @@
                   </div>
                   <div class="col-md-6" style="display: flex; align-items: center; justify-content:center;">
                     <div class="bg-dark-blue" style="margin-top:60vh; padding:10px 25px; border-radius:10px">
-                      <p style="margin:0; font-family: Times;"><i>"Proud to be part of the adviso Family"</i></p>
+                      <p style="margin:0; font-family: Times;"><i>"Proud to be part of the Adviso Family"</i></p>
                     </div>
                   </div>
                 </div>
@@ -31,8 +31,8 @@
                 <div class="row">
                   <div class="col-md-6" style="display: flex; align-items: center; justify-content:center;">
                     <div class="bg-dark-blue" style="margin-top:60vh; padding:5px 25px; border-radius:10px">
-                      <p style="margin:0; font-family: Times;"><i>Laura Guerrero (EA)</i></p>
-                      <p style="margin:0; font-family: Times;"><i>Partner</i></p>
+                      <p style="margin:0; font-family: Times;"><i>Laura Guerrero</i></p>
+                      <p style="margin:0; font-family: Times;"><i>Enrolled Agent - Partner</i></p>
                     </div>
                   </div>
                   <div class="col-md-6 text-left banner2-content text-center">
@@ -40,7 +40,7 @@
                       <p class="title">EVERY RETURN</p>
                       <p class="title">IS REVIEWED BY AN</p>
                       <p class="title">ENROLLED AGENT (EA)</p>
-                      <img src="../assets/images/EA_logo.jpg" class="img-fluid" style="max-width:350px; margin-bottom:15px;" />
+                      <img src="../assets/images/EA_logo.jpg" class="img-fluid" style="max-width:350px; max-height:80px; margin-bottom:5px;" />
                       <p class="subtitle">*Enrolled Agents are authorized to represent a</p>
                       <p class="subtitle">taxpayer before the IRS, and holds the highest</p>
                       <p class="subtitle">credentials awarded by the IRS.</p>
@@ -56,9 +56,9 @@
                       <p class="title">OPEN ALL YEAR!</p>
                       <p class="subtitle1">Life's situations never stops, so why</p>
                       <p class="subtitle1">should we? As many tax offices close for</p>
-                      <p class="subtitle1">The season, we stay open all year long to</p>
+                      <p class="subtitle1">the season, we stay open all year long to</p>
                       <p class="subtitle1">take your calls and meet with you if</p>
-                      <p class="subtitle1">needed. It's what family is all about.</p>
+                      <p class="subtitle1">needed. It's what family is all about!</p>
                       <a href="#appointment" class="btn btn-primary">Setup a Free Consultation</a>
                     </div>
                   </div>
@@ -458,21 +458,21 @@ export default {
     font-weight: 700;
   }
   .banner2-content .title{
-    font-size: 34px;
-    line-height: 30px;
+    font-size: 28px;
+    line-height: 24px;
     font-weight: 700;
   }
   .banner1-content .opacity-bg{
     background-color: rgba(49, 60, 68, 0.7);
-    padding:60px 70px 50px 220px;
+    padding:55px 70px 45px 220px;
   }
   .banner2-content .opacity-bg{
     background-color: rgba(49, 60, 68, 0.7);
-    padding:60px 220px 50px 70px;
+    padding:50px 220px 40px 70px;
   }
   .banner3-content .opacity-bg{
     background-color: rgba(49, 60, 68, 0.7);
-    padding:70px 80px 60px 220px;
+    padding:90px 80px 80px 220px;
   }
   .banner1-content .btn-primary,
   .banner2-content .btn-primary,
