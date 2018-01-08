@@ -13,11 +13,14 @@ import VueAxios from 'vue-axios'
 import VueLodash from 'vue-lodash'
 import axios from 'axios'
 import lodash from 'lodash'
+import socketio from 'socket.io'
+import VueSocketio from 'vue-socket.io'
 
 Vue.use(ElementUI, { locale })
 Vue.use(VueMoment, moment)
 Vue.use(VueAxios, axios)
 Vue.use(VueLodash, lodash)
+Vue.use(VueSocketio, socketio('http://socketserver.com:1923'), store)
 Vue.use(VueGoogleMaps, {
   load: {
     key: 'AIzaSyATSZ8ZMz0L0e3dNxz3hzNJw7FHyFcZFcs',
