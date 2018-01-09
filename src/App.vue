@@ -12,7 +12,6 @@
       </div>
     </div>
     <div id="client" v-if="clientPages.includes($route.name)">
-
       <client-topbar></client-topbar>
       <router-view/>
       <client-bottombar></client-bottombar>

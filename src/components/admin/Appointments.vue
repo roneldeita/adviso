@@ -129,6 +129,21 @@ export default {
       appointments: []
     }
   },
+  sockets: {
+    UPDATESTATUS (data) {
+      if (data.new_appointment) {
+        this.getAppointments(this.convertDate(this.picker))
+        this.$notify({
+          title: 'New Appointment',
+          message: 'Someone has requested a callback',
+          type: 'success'
+        })
+      }
+      if (data.update_status) {
+        this.getAppointments(this.convertDate(this.picker))
+      }
+    }
+  },
   methods: {
     handleSelect (selectedTab) {
       this.activeTab = selectedTab.name
@@ -158,6 +173,7 @@ export default {
       this.axios.post(process.env.API_URL + '/appointment/update/', {id: apppointmentId, status: apppointmenStatus, email: adminEmail})
       .then(response => {
         this.getAppointments(this.convertDate(this.picker))
+        this.$socket.emit('UPDATESTATUS', {update_status: true})
       })
       .catch(error => {
         console.log(error.response.data)

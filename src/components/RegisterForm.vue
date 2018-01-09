@@ -190,6 +190,7 @@ export default {
               this.$alert('Congrats, Your request was submitted. One of our representative will contact you to set you up!', 'Success!', { confirmButtonText: 'OK', type: 'success' })
               this.resetForm()
               this.submitLoading = false
+              this.$socket.emit('UPDATESTATUS', {new_appointment: true})
             }
           }).catch(error => {
             this.$alert(error.response.data.message, 'Oops!', { confirmButtonText: 'OK', type: 'error' })
